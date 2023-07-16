@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><%= menus.name %></h1>
+
+    <div class="btn-toolbar mb-2 mb-md 0">
+        <div class="btn-group me-2">
+            <a href="/add" class="btn btn-sm btn-outline-secondary">
+                Add menu
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col py-3">
+
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><%= menus.name %></li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+            <b>Last Updated at <%= new Date(menus.updatedAt).toUTCString() %></b>
+        </div>
+    </div>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Name</b></div>
+            <div class="col"><%= menus.name %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Description</b></div>
+            <div class="col"><%= menus.description %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Price</b></div>
+            <div class="col"><%= menus.price %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Category</b></div>
+            <div class="col"><%= menus.category %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Created on</b></div>
+            <div class="col"><%= new Date(menus.createdAt).toUTCString() %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Last Updated On</b></div>
+            <div class="col"><%= new Date(menus.updatedAt).toUTCString() %></div>
+        </div>
+    </li>
+</ul>

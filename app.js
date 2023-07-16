@@ -4,7 +4,7 @@ const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const methodOverride = require('method-override')
 
-const session = require('express-session');
+// const session = require('express-session');
 
 const connectDB = require('./server/config/db')
 
@@ -22,16 +22,16 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
 //Express session
-app.use(
-    session({
-      secret: 'secret',
-      resave: false,
-      saveUninitialized: true,
-      cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-      }
-    })
-  );
+// app.use(
+//     session({
+//       secret: 'secret',
+//       resave: false,
+//       saveUninitialized: true,
+//       cookie: {
+//         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+//       }
+//     })
+//   );
 
 
 //Templating Engine

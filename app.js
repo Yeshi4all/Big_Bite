@@ -41,6 +41,7 @@ app.set('view engine', 'ejs');
 
 
 //Routes
+ app.use('/',require('./server/routes/home'))
  app.use('/',require('./server/routes/admin_menu'))
 
 // app.get('/', (req,res)=>{

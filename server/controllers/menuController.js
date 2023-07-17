@@ -21,11 +21,11 @@ const mongoose = require('mongoose');
 
  exports.menupage = async (req,res) => {
     const locals = {
-        title: 'Landing page',
-        description: 'Landing page for the web site'
+        title: 'Menu page',
+        description: 'Menu page for the admin'
     }
 
-    let perPage = 12;
+    let perPage = 10;
     let page = req.query.page || 1;
 
     try{
@@ -76,7 +76,7 @@ const mongoose = require('mongoose');
 
     try{
         await Menu.create(newMenu);
-        res.redirect('/');
+        res.redirect('/index');
 
     }catch(error){
         console.log(error);

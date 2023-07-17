@@ -6,8 +6,7 @@ const menuController = require('../controllers/menuController');
  * Routes for menus
  */
 
-router.get('/', menuController.menupage);
-
+router.get('/index', menuController.menupage);
 
 /**
  * 
@@ -38,5 +37,7 @@ router.get('/edit/:id', menuController.edit);
 
 router.put('/edit/:id', menuController.editPost);
 router.delete('/edit/:id', menuController.deleteMenu);
+
+
 
 module.exports = router;

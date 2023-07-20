@@ -3,10 +3,11 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const methodOverride = require('method-override')
-
-// const session = require('express-session');
-
+const passport = require('passport')
+const session = require('express-session');
+const flash = require('express-flash')
 const connectDB = require('./server/config/db')
+
 
 const app = express();
 const port = 5000 || process.env.PORT;
@@ -18,21 +19,29 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
-//Static files
-app.use(express.static('public'));
+//Passport
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport
+)
+
+app.use(flash())
 
 //Express session
-// app.use(
-//     session({
-//       secret: 'secret',
-//       resave: false,
-//       saveUninitialized: true,
-//       cookie: {
-//         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-//       }
-//     })
-//   );
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+    }
+}));
 
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Static files
+app.use(express.static('public'));
 
 //Templating Engine
 app.use(expressLayout);
@@ -43,7 +52,7 @@ app.set('view engine', 'ejs');
 //Routes
  app.use('/',require('./server/routes/home'))
  app.use('/',require('./server/routes/admin_menu'))
-
+ app.use('/',require('./server/routes/authentication'))
 // app.get('/', (req,res)=>{
 //   res.render('landingPage',{ layout: false });
 // })

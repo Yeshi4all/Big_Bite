@@ -1,13 +1,15 @@
 <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Menu</h1>
+  <h1 class="h2">Menu</h1>
 
-    <div class="btn-toolbar mb-2 mb-md 0">
-        <div class="btn-group me-2">
-            <a href="/add" class="btn btn-sm btn-outline-secondary">
-                Add menu
-            </a>
-        </div>
+  <div class="btn-toolbar mb-2 mb-md 0">
+      <div class="btn-group me-2">
+          <a href="/add" class="btn btn-sm btn-outline-secondary">
+              Add menu
+          </a>
+      </div>
     </div>
+      
+  </div>
 </div>
 
 <div class="table-responsive">
@@ -87,3 +89,16 @@
       </ul>
     </nav>
   <% } %>
+  <script>
+    function hideLoginShowLogout() {
+        var loginLink = document.getElementById('loginLink');
+        var logoutLink = document.getElementById('logoutLink');
+        var registerLink = document.getElementById('registerLink');
+
+        loginLink.style.display = "none";
+        logoutLink.style.display = "block";
+    }
+
+    // Call this function after a successful login to show only the "Logout" link
+    hideLoginShowLogout();
+</script>

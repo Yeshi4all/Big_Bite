@@ -1,40 +1,36 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport')
+const passport = require('passport');
 const userController = require('../controllers/userController');
 
 /**
  * Login
  */
-
 router.get('/login', userController.login);
 
 /**
- * 
  * Register
  */
-
 router.get('/register', userController.register);
 
 /**
- * 
  * Logout
  */
-
 router.get('/logout', userController.logout);
 
 /**
- * 
- * post login
+ * Post login
  */
 // Assuming you have the required dependencies and configurations set up properly.
 
-// Middleware to check authentication status and set menu variable
+// Middleware to check authentication status and set menu variables
 function checkAuthentication(req, res, next) {
     if (req.isAuthenticated()) {
         res.locals.isAuthenticated = true;
+        res.locals.usertype = req.user.usertype; // Set the usertype from the authenticated user
     } else {
         res.locals.isAuthenticated = false;
+        res.locals.usertype = 2; // Assuming default usertype is 2 for non-authenticated users
     }
     next();
 }
@@ -42,7 +38,6 @@ function checkAuthentication(req, res, next) {
 // Apply the middleware to all routes
 router.use(checkAuthentication);
 
-// Login route with manual authentication handling
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) {
@@ -62,13 +57,9 @@ router.post('/login', (req, res, next) => {
                 return next(err);
             }
 
-            // Extract the domain from the email address
-            const email = user.email; // Assuming email is a property on the user object
-            const domain = email.substring(email.lastIndexOf('@') + 1);
-
-            // Check the domain and redirect accordingly
-            if (domain === 'bigbite.com') {
-                // If the domain is 'bigbite.com', redirect to '/'
+            // Redirect based on the usertype
+            if (user.usertype === 1) {
+                // If usertype is 1, redirect to '/index'
                 return res.redirect('/index');
             } else {
                 // Otherwise, redirect to '/dashboardhome'
@@ -78,35 +69,33 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
-// Now, all routes below this point will have access to the 'isAuthenticated' variable
-// You can use this variable to render the menu conditionally based on the authentication status.
-
+/**
+ * Render the menu based on the 'isAuthenticated' and 'usertype' variables
+ */
 router.get('/', (req, res) => {
-    // Render the menu based on the isAuthenticated variable
     if (res.locals.isAuthenticated) {
-        // Render the menu for authenticated users
-        res.render('/index');
+        // Render the menu based on the 'usertype' for authenticated users
+        if (res.locals.usertype === 1) {
+            // Render the menu for users with usertype 1
+            res.render('index', { isAuthenticated: true });
+        } else {
+            // Render the menu for users with usertype other than 1
+            res.render('dashboardhome', { isAuthenticated: true });
+        }
     } else {
         // Render the menu for non-authenticated users
-        res.render('/login');
+        res.render('login', { isAuthenticated: false });
     }
 });
 
-
-
 /**
- * 
- * post register
+ * Post register
  */
-
 router.post('/register', userController.postregister);
 
 /**
- * 
- * post logout
+ * Post logout
  */
-
 router.post('/logout', userController.postlogout);
-
 
 module.exports = router;

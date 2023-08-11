@@ -8,7 +8,7 @@ exports.restuarantabout = async (req,res) => {
 
  exports.restuaranthome = async (req,res) => {
     try{
-        res.render('./dashboard/bigbitehome', { layout: false });
+        res.render('./dashboard/bigbitehome', { layout: false, });
         }catch(error){
             console.log(error);
         }

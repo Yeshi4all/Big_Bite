@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    usertype: {
+        type: Number,
+        default: 2
+    },
     createdAt:{
         type: Date,
         default: Date.now()
@@ -19,4 +23,4 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema);

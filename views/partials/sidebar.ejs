@@ -1,49 +1,76 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
 <nav id="sidebarMenu" class="col-md-2 d-md-block bg-light sidebar collapse">
   <div class="position-sticky pt-3 sidebar-sticky">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/index">
-          <i class="bi bi-house"></i>
-          Dashboard
-        </a>
-        <a class="nav-link" href="/login" id="loginLink">
-          <i class="bi bi-house"></i>
-          Login
-        </a>
-        
-        <a class="nav-link" href="#" id="logoutLink" style="display: none;">
-          <i class="bi bi-house"></i>
-          Logout
-        </a>
-      </li>
-    </ul>
+      <ul class="nav flex-column">
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index">
+                  <span class="dashboard-link">
+                      <i class="fas fa-home"></i> <!-- Home icon -->
+                      Dashboard
+                  </span>
+              </a>
+              <a class="nav-link" href="/login" id="loginLink">
+                  <span class="login-link">
+                      <i class="fas fa-sign-in-alt"></i> <!-- Login icon -->
+                      Login
+                  </span>
+              </a>
+              <a class="nav-link" href="#" id="logoutLink" style="display: none;">
+                  <span class="logout-link">
+                      Logout
+                      <i class="fas fa-sign-out-alt"></i> <!-- Logout arrow icon -->
+                  </span>
+              </a>
+          </li>
+      </ul>
   </div>
 </nav>
 
-
 <script>
   // Add an event listener to the Logout link
-  document.getElementById('logoutLink').addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default behavior of the link
+  document.getElementById('logoutLink').addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent the default behavior of the link
 
-    // Send an HTTP request to destroy the user session on the server
-    // You can use fetch or XMLHttpRequest to make the request
-    fetch('/logout', {
-      method: 'POST', // Use POST or GET depending on your server-side implementation
-      credentials: 'include' // Include cookies for the server to identify the user session
-    })
-    .then(response => {
-      if (response.ok) {
-        // Session destroyed successfully, redirect the user to the login page
-        window.location.href = '/login';
-      } else {
-        // Handle errors, maybe show an error message
-        console.error('Logout failed');
-      }
-    })
-    .catch(error => {
-      // Handle errors, maybe show an error message
-      console.error('Logout failed', error);
-    });
+      // Send an HTTP request to destroy the user session on the server
+      // You can use fetch or XMLHttpRequest to make the request
+      fetch('/logout', {
+          method: 'POST', // Use POST or GET depending on your server-side implementation
+          credentials: 'include' // Include cookies for the server to identify the user session
+      })
+          .then(response => {
+              if (response.ok) {
+                  // Session destroyed successfully, redirect the user to the login page
+                  window.location.href = '/login';
+              } else {
+                  // Handle errors, maybe show an error message
+                  console.error('Logout failed');
+              }
+          })
+          .catch(error => {
+              // Handle errors, maybe show an error message
+              console.error('Logout failed', error);
+          });
   });
 </script>
+
+<style>
+  /* Add custom CSS styles for the links */
+  .dashboard-link,
+  .login-link,
+  .logout-link {
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 20px; /* Adjust this value to change the vertical position */
+      transition: color 0.3s;
+  }
+
+  /* Add hover effect */
+  .nav-link:hover .dashboard-link,
+  .nav-link:hover .login-link,
+  .nav-link:hover .logout-link {
+      color: #007bff; /* Change to your desired hover color */
+  }
+</style>

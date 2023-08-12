@@ -9,9 +9,8 @@ const flash = require('express-flash')
 const connectDB = require('./server/config/db')
 
 
-
 const app = express();
-const port = 5000 || process.env.PORT;
+const port = 3000 || process.env.PORT;
 
 //DB connection
 connectDB();
@@ -59,6 +58,7 @@ app.set('view engine', 'ejs');
  app.use('/',require('./server/routes/admin_menu'))
  app.use('/',require('./server/routes/authentication'))
  app.use('/',require('./server/routes/dashboard'))
+ app.use('/',require('./server/routes/cust_menu'))
  
 
 // app.get('/', (req,res)=>{

@@ -15,13 +15,11 @@
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
                 <th scope="col">Category</th>
-                <th scope="col">Image</th>
                 <th scope="col" class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
             <% menus.forEach(element => { %>
-<<<<<<< Updated upstream
                 <tr class="align-middle">
                     <td><%= element.name %></td>
                     <td><%= element.description %></td>
@@ -43,36 +41,6 @@
                         </div>
                     </td>
                 </tr>
-=======
-             <tr class="align-middle">
-                <td><%= element.name %></td>
-                <td><%= element.description %></td>
-                <td><%= element.price %></td>
-                <td><%= element.category %></td>
-                <% if (element.imageData) { %>
-                  <td><img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>"></td>
-                <% } else { %>
-                <td><p>No image available</p></td>
-                <% } %>
-                <td class="text-end">
-                    <div class="d-flex flex-row justify-content-end gap-2">
-                        <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
-                            <i class="bi bi-eye"></i>
-                          </a>
-            
-                          <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
-                            <i class="bi bi-pencil"></i>
-                          </a>
-            
-                          <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
-                            <button type="submit" class="btn btn-danger btn-small">
-                              <i class="bi bi-trash"></i>
-                            </button>
-                          </form>
-                    </div>
-                </td>
-             </tr>
->>>>>>> Stashed changes
             <% }) %>
         </tbody>
     </table>

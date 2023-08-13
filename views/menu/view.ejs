@@ -29,6 +29,16 @@
 <ul class="list-group">
     <li class="list-group-item">
         <div class="row">
+            <div class="col" style="max-width: 140px"><b>Image</b></div>
+            <div class="col"><% if (menu.imageData) { %>	
+                <img style="height: 60px; width: 70px;" src="data:image/<%= menu.imageExtension %>;base64,<%= menu.imageData %>">	
+              <% } else { %>	
+              <p>No image available</p>	
+              <% } %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
             <div class="col" style="max-width: 140px"><b>Name</b></div>
             <div class="col"><%= menus.name %></div>
         </div>

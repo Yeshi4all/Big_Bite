@@ -15,6 +15,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
                 <th scope="col">Category</th>
+                <th scope="col">Image</th>
                 <th scope="col" class="text-end">Actions</th>
             </tr>
         </thead>
@@ -25,6 +26,11 @@
                     <td><%= element.description %></td>
                     <td><%= element.price %></td>
                     <td><%= element.category %></td>
+                    <% if (element.imageData) { %>	
+                        <td><img style="height: 30px; width: 50px;" src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>"></td>	
+                      <% } else { %>	
+                      <td><p>No image available</p></td>	
+                      <% } %>
                     <td class="text-end">
                         <div class="d-flex flex-row justify-content-end gap-2">
                             <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">

@@ -25,7 +25,18 @@
     </div>
 </div>
 
-<form action="/edit/<%= menus._id %>?_method=PUT" method="POST">
+<form action="/edit/<%= menus._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  
+  <div class="row form-group mb-4">
+    <div class="col">
+      <label for="name">Image</label>
+      <div class="col"><% if (menu.imageData) { %>	
+        <img style="height: 60px; width: 70px;" src="data:image/<%= menu.imageExtension %>;base64,<%= menu.imageData %>">	
+      <% } else { %>	
+      <p>No image available</p>	
+      <% } %></div>
+    </div>
+  </div>
     <div class="row form-group mb-4">
         <div class="col">
           <label for="name">Name</label>
@@ -52,6 +63,12 @@
           <label for="category">Category</label>
           <input type="text" class="form-control" id="category" name="category" value="<%= menus.category %>" placeholder="Category" required>
         </div>
+    </div>
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="image">Update Image</label>
+        <input type="file" class="form-control" id="image" name="image">
+      </div>
     </div>
 
     <div class="form-group mb-4">

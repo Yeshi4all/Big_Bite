@@ -28,9 +28,8 @@ const mime = require('mime-types');
 
         // Iterate through menus and convert the Buffer to a base64 string
         menus.forEach((menu) => {
-          menu.imageData = menu.imageData ? menu.imageData.toString('base64') : null;
+          menu.imageData = menu.imageData ? menu.imageData : null;
           // Set the image extension if known (e.g., 'png', 'jpg', etc.)
-          //menu.imageExtension = menu.imageData ? 'png' : null; // Replace 'png' with the actual extension if known.
           menu.imageExtension = menu.imageData ? mime.extension(menu.imageMimeType) : null;
         });
 
@@ -63,14 +62,13 @@ const mime = require('mime-types');
   * Create new Menu
   **********************************************************************************************************/
  exports.postMenu = async (req,res) => {
-  console.log(req.file);
+  
   upload(req, res, async (err) => {
     if (err instanceof multer.MulterError) {
       return res.status(500).json({ error: 'Error uploading image' });
     } else if (err) {
       return res.status(500).json({ error: err.message || 'Unknown error' });
     }
-
     // Create a new Menu instance with the form data
     const newMenu = new Menu({
       name: req.body.name,
@@ -88,24 +86,6 @@ const mime = require('mime-types');
       console.log(error);
     }
   });
-
-  
-    // console.log(req.body);
-
-    // const newMenu = new Menu({
-    //     name: req.body.name,
-    //     description: req.body.description,
-    //     price: req.body.price,
-    //     category: req.body.category,
-    //   });
-    
-    // try{
-    //     await Menu.create(newMenu);
-    //     res.redirect('/index');
-
-    // }catch(error){
-    //     console.log(error);
-    // }
  }
 
  /**************************************************************************************************************
@@ -117,6 +97,13 @@ const mime = require('mime-types');
     try{
         const menus = await Menu.findOne({_id: req.params.id})
 
+        // Iterate through menus and convert the Buffer to a base64 string
+        var menu ={
+          imageData : menus.imageData ? menus.imageData : null,
+          // Set the image extension if known (e.g., 'png', 'jpg', etc.)
+          imageExtension : menus.imageData ? mime.extension(menus.imageMimeType) : null
+        }
+          
         const locals = {
             title: "View menu details",
             description: "View details of the menu."
@@ -124,7 +111,8 @@ const mime = require('mime-types');
 
         res.render('menu/view',{
             locals,
-            menus
+            menus,
+            menu
         })
 
     }catch(error){
@@ -141,6 +129,13 @@ const mime = require('mime-types');
     try {
       const menus = await Menu.findOne({ _id: req.params.id })
   
+      // Iterate through menus and convert the Buffer to a base64 string
+      var menu ={
+        imageData : menus.imageData ? menus.imageData : null,
+        // Set the image extension if known (e.g., 'png', 'jpg', etc.)
+        imageExtension : menus.imageData ? mime.extension(menus.imageMimeType) : null
+      }
+
       const locals = {
         title: "Edit Menu Data",
         description: "Edit menu data",
@@ -148,7 +143,8 @@ const mime = require('mime-types');
   
       res.render('menu/edit', {
         locals,
-        menus
+        menus,
+        menu
       })
   
     } catch (error) {
@@ -162,12 +158,22 @@ const mime = require('mime-types');
  * Update Menu Data 
 *******************************************************************************************************************/
 exports.editPost = async (req, res) => {
+  
+  upload(req, res, async (err) => {
+    if (err instanceof multer.MulterError) {
+      return res.status(500).json({ error: 'Error uploading image' });
+    } else if (err) {
+      return res.status(500).json({ error: err.message || 'Unknown error' });
+    }
+
     try {
       await Menu.findByIdAndUpdate(req.params.id,{
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
         category: req.body.category,
+        // Convert the image to a base64 string and store it in the image field
+        imageData: req.file ? req.file.buffer.toString('base64') : undefined,
         updatedAt: Date.now()
       });
       await res.redirect(`/edit/${req.params.id}`);
@@ -176,6 +182,13 @@ exports.editPost = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+  });
+
+
+
+
+
+    
   }
 
 /****************************************************************************************************************
@@ -185,7 +198,7 @@ exports.editPost = async (req, res) => {
 exports.deleteMenu = async (req, res) => {
     try {
       await Menu.deleteOne({ _id: req.params.id });
-      res.redirect("/")
+      res.redirect("/index")
     } catch (error) {
       console.log(error);
     }

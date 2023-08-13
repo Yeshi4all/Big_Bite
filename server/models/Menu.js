@@ -18,6 +18,9 @@ const MenuSchema = new Schema({
         type: String,
         required: true
     },
+    imageData:{
+        type: Buffer
+    },
     createdAt:{
         type: Date,
         default: Date.now()

@@ -12,6 +12,13 @@ Author URL: http://w3layouts.com
     <title>BigBite</title>
 
     <link href="//fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+    <!-- Include jQuery (required for Fancybox) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <!-- Include Fancybox JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="css/style-starter.css">
@@ -103,33 +110,39 @@ Author URL: http://w3layouts.com
 
             <input id="tab3" type="radio" name="tabs">
             <label class="tabtle" for="tab3">Dinner</label>
- <!-- Section starts: Breakfast -->
-<section id="content1" class="tab-content text-left">
-    <div class="Center">
-      <!-- Item starts -->
-      <% menus.forEach(element => { %>
-        <% if (element.category == 'Breakfast') { %>
-        <div class="menu-item">
-          <% if (element.imageData) { %>	
-            <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
-          <% } %>
-          <div class="row border-dot no-gutters">
-            <div class="col-8 menu-item-name">
-              <div class="menu-item-name"><%= element.name %></div>
-            </div>
-            <div class="col-4 menu-item-price text-right">
-              <div class="menu-item-price">$<%= element.price %></div>
-            </div>
-          </div>
-          <div class="menu-item-description">
-            
-          </div>
-        </div>
-        <% } %>
-      <% }) %>
-      <!-- Item ends -->
-    </div>
-  </section>
+
+   
+           
+            <section id="content1" class="tab-content text-left">
+                <div class="Center">
+                  <!-- Item starts -->
+                  <% menus.forEach(element => { %>
+                    <% if (element.category == 'Breakfast') { %>
+                    <div class="menu-item">
+                      <% if (element.imageData) { %>
+                        <a href="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" data-fancybox="menu-images">
+                          <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+                        </a>
+                      <% } %>
+                      <div class="row border-dot no-gutters">
+                        <div class="col-8 menu-item-name">
+                          <div class="menu-item-name"><%= element.name %></div>
+                        </div>
+                        <div class="col-4 menu-item-price text-right">
+                          <div class="menu-item-price">$<%= element.price %></div>
+                        </div>
+                      </div>
+                      <div class="menu-item-description">
+                        
+                      </div>
+                    </div>
+                    <% } %>
+                  <% }) %>
+                  <!-- Item ends -->
+                </div>
+              </section>
+              
+  
   <!-- Section ends: Breakfast -->
   
   <!-- Section starts: Lunch -->
@@ -138,28 +151,30 @@ Author URL: http://w3layouts.com
       <!-- Item starts -->
       <% menus.forEach(element => { %>
         <% if (element.category == 'Lunch') { %>
-            <div class="menu-item">
-                <% if (element.imageData) { %>	
-                  <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
-                <% } %>
-                <div class="row border-dot no-gutters">
-                  <div class="col-8 menu-item-name">
-                    <div class="menu-item-name"><%= element.name %></div>
-                  </div>
-                  <div class="col-4 menu-item-price text-right">
-                    <div class="menu-item-price">$<%= element.price %></div>
-                  </div>
-                </div>
-                <div class="menu-item-description">
-                  
-                </div>
+          <div class="menu-item">
+            <% if (element.imageData) { %>
+              <a href="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" data-fancybox="menu-images">
+                <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+              </a>
+            <% } %>
+            <div class="row border-dot no-gutters">
+              <div class="col-8 menu-item-name">
+                <div class="menu-item-name"><%= element.name %></div>
               </div>
-              <% } %>
-            <% }) %>
-            <!-- Item ends -->
+              <div class="col-4 menu-item-price text-right">
+                <div class="menu-item-price">$<%= element.price %></div>
+              </div>
+            </div>
+            <div class="menu-item-description">
+              
+            </div>
           </div>
-        </section>
-  <!-- Section ends: Lunch -->
+        <% } %>
+      <% }) %>
+      <!-- Item ends -->
+    </div>
+  </section>
+  
   
   <!-- Section starts: Dinner -->
   <section id="content3" class="tab-content text-left">
@@ -167,27 +182,30 @@ Author URL: http://w3layouts.com
       <!-- Item starts -->
       <% menus.forEach(element => { %>
         <% if (element.category == 'Dinner') { %>
-            <div class="menu-item">
-                <% if (element.imageData) { %>	
-                  <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
-                <% } %>
-                <div class="row border-dot no-gutters">
-                  <div class="col-8 menu-item-name">
-                    <div class="menu-item-name"><%= element.name %></div>
-                  </div>
-                  <div class="col-4 menu-item-price text-right">
-                    <div class="menu-item-price">$<%= element.price %></div>
-                  </div>
-                </div>
-                <div class="menu-item-description">
-                  
-                </div>
+          <div class="menu-item">
+            <% if (element.imageData) { %>
+              <a href="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" data-fancybox="menu-images">
+                <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+              </a>
+            <% } %>
+            <div class="row border-dot no-gutters">
+              <div class="col-8 menu-item-name">
+                <div class="menu-item-name"><%= element.name %></div>
               </div>
-              <% } %>
-            <% }) %>
-            <!-- Item ends -->
+              <div class="col-4 menu-item-price text-right">
+                <div class="menu-item-price">$<%= element.price %></div>
+              </div>
+            </div>
+            <div class="menu-item-description">
+              
+            </div>
           </div>
-        </section>
+        <% } %>
+      <% }) %>
+      <!-- Item ends -->
+    </div>
+  </section>
+  
   <!-- Section ends: Dinner -->
   
 

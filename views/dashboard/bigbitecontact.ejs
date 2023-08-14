@@ -87,63 +87,73 @@ Author URL: http://w3layouts.com
     </div>
 </section>
 <!-- /contact-form -->
-<section class="w3l-footer-29-main py-5">
-  <div class="footer-29 py-lg-4 py-md-3">
+<section class="w3l-contact-6 py-5" id="contact">
+  <div class="contact-info py-lg-4 py-md-3">
       <div class="container">
-          <div class="d-grid grid-col-4 footer-top-29">
-              <div class="footer-list-29 footer-1">
-                  <h6 class="footer-title-29">Contact Us</h6>
-                  <ul>
-                      <li><p><span class="fa fa-map-marker"></span> 941 Progress Ave, Scarborough, ON M1G 3T8</p></li>
-                      <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8888</a></li>
-                      <li><a href="mailto:coffee@mail.com" class="mail"><span class="fa fa-envelope-open-o"></span> bigbite@mail.com</a></li>
-                  </ul>
-                  <div class="main-social-footer-29">
-                      <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
-                      <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
-                      <a href="#google-plus" class="google-plus"><span class="fa fa-google-plus"></span></a>
-                      <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+          <div class="title-content mb-5">
+              <h5 class="title-small text-center mb-2">Contact us</h5>
+              <h3 class="title-big text-center mb-5">Get in touch with us</h3>
+          </div>
+          <div class="grid contact-grids pt-3">
+              <div class="contact-left">
+                  <div class="grid">
+                      <span class="fa fa-map-marker"></span>
+                      <div class="location-info">
+                          <span>Address</span>
+                          <p> 941 Progress Ave, Scarborough, ON M1G 3T8 </p>
+                          <p>Big Bite Traditional Food and Beverages,</p>
+                          <p>Scarborough Toronto , CA.</p>
+                      </div>
+                  </div>
+                  <div class="grid">
+                      <span class="fa fa-envelope-o"></span>
+                      <div class="email-info">
+                          <span>Have any Questions?</span>
+                          <a href="mailto:mail@examplemail.com">bigbiteteam@gmail.com</a>
+                      </div>
+                  </div>
+                  <div class="grid">
+                      <span class="fa fa-phone"></span>
+                      <div class="email-info">
+                          <span>Phone Number</span>
+                          <a href="tel:(123) 456-78-90">(123) 456-78-90</a><br>
+                          <a href="tel:(123) 456-78-90">(+12) 255 456-78-90</a>
+                      </div>
                   </div>
               </div>
-              <div class="footer-list-29 footer-2">
-                  <ul>
-                      <h6 class="footer-title-29">Featured Links</h6>
-                      <li><a href="/dashboard#team">Our Team</a></li>
-                      <li><a href="https://instagram.com/reshma_antony?igshid=NTc4MTIwNjQ2YQ==">Instagram feed</a></li>
-                      <li><a href="/dashboardhome#location">Our Branches</a></li>
-                        <li><a href="/dashboardcontact#contact.">Help & Support</a></li>
-                  </ul>
+              <div class="contacts12-main">
+                   <div class="input-grids">
+                          <div>
+                              <label class="form-field" for="w3lName">Name</label>
+                              <input type="text" name="w3lName" id="w3lName" placeholder="e.g. Jhon Smith"
+                                  class="contact-input" />
+                          </div>
+                          <div>
+                              <label class="form-field" for="w3lSender">Email Address</label>
+                              <input type="email" name="w3lSender" id="w3lSender" placeholder="e.g. example@mail.com"
+                                  class="contact-input" />
+                          </div>
+                      </div>
+
+                      <div>
+                          <label class="form-field" for="w3lSubject">Subject</label>
+                          <input type="text" name="w3lSubject" id="w3lSubject" placeholder="e.g. Subject"
+                              class="contact-input" />
+                      </div>
+                      <div>
+                          <label class="form-field" for="w3lMessage">Message</label>
+                          <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your message here"
+                              required=""></textarea>
+                      </div>
+                      <div class="text-right">
+                          <button class="btn btn-style btn-primary submit"onclick="sendMail()">Submit</button>
+                      </div>
+                  </form>
               </div>
-              <div class="footer-list-29 footer-3">
-                 
-                  <h6 class="footer-title-29">Newsletter </h6>
-                  <p class="mb-3">Get in your inbox the latest News and</p>
-          <form action="#" class="subscribe" method="post">
-            <input type="email" name="email" placeholder="Email" required="">
-            <button><span class="fa fa-envelope-o"></span></button>
-          </form>
-          <p>Subscribe and get our weekly newsletter</p>
-          <p>We'll never share your email address</p>
-        
-              </div>
-              <div class="footer-list-29 footer-4">
-                  <ul>
-                      <h6 class="footer-title-29">Quick Links</h6>
-                      <li><a href="/dashboardhome">Home Page</a></li>
-                      <li><a href="/dashboard">About Us</a></li>
-                      <li><a href="/bigbitemenu">Our Menu</a></li>
-                      <li><a href="/dashboardcontact">Contact Us</a></li>
-                  </ul>
-              </div>
-          </div>
-          <div class="d-grid grid-col-2 bottom-copies">
-              <p class="copy-footer-29">© Big Bite Traditional Food. All rights reserved ></p>
-               
-                  </ul>
           </div>
       </div>
   </div>
-  
+</section>
 <!--for email inquiries-->
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -252,11 +262,10 @@ function sendMail(){
               <div class="footer-list-29 footer-2">
                   <ul>
                       <h6 class="footer-title-29">Featured Links</h6>
-                      <li><a href="#team">Our Team</a></li>
-                      <li><a href="#insta">Instagram feed</a></li>
-                      <li><a href="contact.html">Our Branches</a></li>
-                      <li><a href="#careers">Careers</a></li>
-                      <li><a href="#help">Help & Support</a></li>
+                      <li><a href="/dashboard#team">Our Team</a></li>
+                      <li><a href="https://instagram.com/reshma_antony?igshid=NTc4MTIwNjQ2YQ==">Instagram feed</a></li>
+                      <li><a href="/dashboardhome#location">Our Branches</a></li>
+                        <li><a href="/dashboardcontact#contact.">Help & Support</a></li>
                   </ul>
               </div>
               <div class="footer-list-29 footer-3">
@@ -274,20 +283,16 @@ function sendMail(){
               <div class="footer-list-29 footer-4">
                   <ul>
                       <h6 class="footer-title-29">Quick Links</h6>
-                      <li><a href="index.html">Home Page</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="menu.html">Our Menu</a></li>
-                      <li><a href="#blog"> Blog Posts</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="/dashboardhome">Home Page</a></li>
+                      <li><a href="/dashboard">About Us</a></li>
+                      <li><a href="/bigbitemenu">Our Menu</a></li>
+                      <li><a href="/dashboardcontact">Contact Us</a></li>
                   </ul>
               </div>
           </div>
           <div class="d-grid grid-col-2 bottom-copies">
-              <p class="copy-footer-29">© 2020 Coffee. All rights reserved /a></p>
-               <ul class="list-btm-29">
-                      <li><a href="#link">Privacy policy</a></li>
-                      <li><a href="#link">Terms of service</a></li>
-                      
+              <p class="copy-footer-29">© Big Bite Traditional Food. All rights reserved </p>
+               
                   </ul>
           </div>
       </div>

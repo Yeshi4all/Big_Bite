@@ -108,11 +108,14 @@ Author URL: http://w3layouts.com
   <div class="Center">
           <!-- Item starts -->
           <div class="menu-item ">
-              <img src="images/middle.png" alt="" class="radius-image img-fluid">
               <div>
                 <% menus.forEach(element => { %>
                   <% if (element.category == 'Breakfast') { %>
                  
+                    <% if (element.imageData) { %>	
+                      <img style="height: 30px; width: 50px;" src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
+                    <% } else { %>	
+                    <% } %>
                   <div class=" col-8 row border-dot no-gutters">
                       <div class="col-8 menu-item-name">
                         <div class="menu-item-name"><%= element.name %></div>
@@ -143,11 +146,16 @@ Author URL: http://w3layouts.com
      
           <!-- Item starts -->
           <div class="menu-item">
-            <img src="images/middle.png" alt="" class="radius-image img-fluid">
             <div>
               <% menus.forEach(element => { %>
                 <% if (element.category == 'Lunch') { %>
                
+                  <% if (element.imageData) { %>	
+                    <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
+                  <% } else { %>	
+                  <p>No image available</p>
+                  <% } %>
+
                 <div class="col-8 row border-dot no-gutters">
                     <div class="col-8 menu-item-name">
                       <div class="menu-item-name"><%= element.name %></div>
@@ -178,11 +186,14 @@ Author URL: http://w3layouts.com
            
                 <!-- Item starts -->
                 <div class="menu-item">
-                  <img src="images/middle.png" alt="" class="radius-image img-fluid">
                   <div>
                     <% menus.forEach(element => { %>
                       <% if (element.category == 'Dinner') { %>
-                     
+                        <% if (element.imageData) { %>	
+                          <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
+                        <% } else { %>	
+                        <p>No image available</p>
+                        <% } %>
                       <div class="col-8 row border-dot no-gutters">
                           <div class="col-8 menu-item-name">
                             <div class="menu-item-name"><%= element.name %></div>

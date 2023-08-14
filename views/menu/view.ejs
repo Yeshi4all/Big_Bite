@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <!-- Include jQuery (required for Fancybox) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Include Fancybox JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
 <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"><%= menus.name %></h1>
 
@@ -28,15 +36,20 @@
 
 <ul class="list-group">
     <li class="list-group-item">
-        <div class="row">
-            <div class="col" style="max-width: 140px"><b>Image</b></div>
-            <div class="col"><% if (menu.imageData) { %>	
-                <img style="height: 60px; width: 70px;" src="data:image/<%= menu.imageExtension %>;base64,<%= menu.imageData %>">	
-              <% } else { %>	
-              <p>No image available</p>	
-              <% } %></div>
+      <div class="row">
+        <div class="col" style="max-width: 140px"><b>Image</b></div>
+        <div class="col">
+          <% if (menu.imageData) { %>	
+            <a href="data:image/<%= menu.imageExtension %>;base64,<%= menu.imageData %>" data-fancybox="menu-image">
+              <img style="height: 60px; width: 70px;" src="data:image/<%= menu.imageExtension %>;base64,<%= menu.imageData %>">	
+            </a>
+          <% } else { %>	
+            <p>No image available</p>	
+          <% } %>
         </div>
+      </div>
     </li>
+  
     <li class="list-group-item">
         <div class="row">
             <div class="col" style="max-width: 140px"><b>Name</b></div>

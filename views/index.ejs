@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<!-- Include jQuery (required for Fancybox) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Fancybox JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Menu</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
@@ -21,16 +29,20 @@
         </thead>
         <tbody>
             <% menus.forEach(element => { %>
-                <tr class="align-middle">
-                    <td><%= element.name %></td>
-                    <td><%= element.description %></td>
-                    <td><%= element.price %></td>
-                    <td><%= element.category %></td>
-                    <% if (element.imageData) { %>	
-                        <td><img style="height: 30px; width: 50px;" src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>"></td>	
-                      <% } else { %>	
-                      <td><p>No image available</p></td>	
-                      <% } %>
+              <tr class="align-middle">
+                <td><%= element.name %></td>
+                <td><%= element.description %></td>
+                <td><%= element.price %></td>
+                <td><%= element.category %></td>
+                <% if (element.imageData) { %>	
+                  <td>
+                    <a href="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" data-fancybox="menu-images">
+                      <img style="height: 30px; width: 50px;" src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>">
+                    </a>
+                  </td>
+                <% } else { %>	
+                  <td><p>No image available</p></td>	
+                <% } %>
                     <td class="text-end">
                         <div class="d-flex flex-row justify-content-end gap-2">
                             <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">

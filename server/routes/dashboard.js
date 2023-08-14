@@ -2,21 +2,27 @@ const express = require('express');
 const router = express.Router();
 const dashboardcontroller = require('../controllers/dashboardcontroller');
 
-/**
- * Routes for about
- */
+/****************************************************************************
+ * Get
+ * ***************************************************************************
+ * User dashboard
+ ****************************************************************************/
 
 router.get('/dashboard', dashboardcontroller.restuarantabout);
 
-/**
- * Routes for home
- */
+/*****************************************************************************
+ * Get
+ * ***************************************************************************
+ * Customer home page
+ *****************************************************************************/
 
 router.get('/dashboardhome', dashboardcontroller.restuaranthome);
 
-/**
- * Routes for contact
- */
+/******************************************************************************
+ * Get
+ * ****************************************************************************
+ * Contact page
+ ******************************************************************************/
 
 router.get('/dashboardcontact', dashboardcontroller.restuarantcontact);
 

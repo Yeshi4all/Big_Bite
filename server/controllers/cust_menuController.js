@@ -2,10 +2,10 @@ const Menu = require('../models/Menu');
 const mongoose = require('mongoose');
 const mime = require('mime-types');
 
-/*
+/***********************************************************************************************
  * GET
- * 
- */
+ * Getting the menus from the model Menu
+ ********************************************************************************************/
 
 exports.cust_menupage = async (req,res) => {
     try{

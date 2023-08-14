@@ -1,3 +1,6 @@
+/***********************************************************
+ * Rendering Landing page.
+ **********************************************************/
 exports.homepage = async (req,res) => {
     try{
         res.render('landingPage', { layout: false });

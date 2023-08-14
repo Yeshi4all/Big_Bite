@@ -1,3 +1,8 @@
+/**
+ * Rendering the About page
+ * @param {*} req 
+ * @param {*} res 
+ */
 exports.restuarantabout = async (req,res) => {
     try{
         res.render('./dashboard/bigbiteabout', { layout: false });
@@ -6,6 +11,9 @@ exports.restuarantabout = async (req,res) => {
         }
  }
 
+ /**
+  * Renfering the home page
+  */
  exports.restuaranthome = async (req,res) => {
     try{
         res.render('./dashboard/bigbitehome', { layout: false, });
@@ -13,6 +21,10 @@ exports.restuarantabout = async (req,res) => {
             console.log(error);
         }
  }
+
+ /**
+  * Rendering the contact page.
+  */
  exports.restuarantcontact = async (req,res) => {
     try{
         res.render('./dashboard/bigbitecontact', { layout: false });

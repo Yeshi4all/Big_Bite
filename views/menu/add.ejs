@@ -66,5 +66,19 @@
         <button type="submit" class="btn btn-primary">Add Menu</button>
     </div>
 
-       
+     
+    <script>
+        function hideLoginShowLogout() {
+            var loginLink = document.getElementById('loginLink');
+            var logoutLink = document.getElementById('logoutLink');
+            var registerLink = document.getElementById('registerLink');
+    
+            loginLink.style.display = "none";
+            logoutLink.style.display = "block";
+        }
+    
+        // Call this function after a successful login to show only the "Logout" link
+        hideLoginShowLogout();
+    </script>
+    
 </form>

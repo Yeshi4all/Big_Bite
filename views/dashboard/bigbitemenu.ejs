@@ -41,16 +41,16 @@ Author URL: http://w3layouts.com
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item @@index__active">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/dashboardhome">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item @@about__active">
-                      <a class="nav-link" href="about.html">About</a>
+                      <a class="nav-link" href="/dashboard">About</a>
                   </li>
                   <li class="nav-item active">
-                      <a class="nav-link" href="menu.html">Menu</a>
+                      <a class="nav-link" href="/bigbitemenu">Menu</a>
                   </li>
                   <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact.html">Contact</a>
+                      <a class="nav-link" href="/dashboardcontact">Contact</a>
                   </li>
               </ul>
           </div>
@@ -103,183 +103,94 @@ Author URL: http://w3layouts.com
 
             <input id="tab3" type="radio" name="tabs">
             <label class="tabtle" for="tab3">Dinner</label>
- <!-- Section starts: Appetizers -->
+ <!-- Section starts: Breakfast -->
 <section id="content1" class="tab-content text-left">
-  <div class="Center">
-          <!-- Item starts -->
-          <div class="menu-item ">
-              <div>
-                <% menus.forEach(element => { %>
-                  <% if (element.category == 'Breakfast') { %>
-                 
-                    <% if (element.imageData) { %>	
-                      <img style="height: 30px; width: 50px;" src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
-                    <% } else { %>	
-                    <% } %>
-                  <div class=" col-8 row border-dot no-gutters">
-                      <div class="col-8 menu-item-name">
-                        <div class="menu-item-name"><%= element.name %></div>
-                      </div>
-                      <div class="col-4 menu-item-price text-right">
-                        <div class="menu-item-price">$<%= element.price %></div>
-                      </div>
-                  </div>
-                  <div class="menu-item-description">
-                    <div class="menu-item-description"><%= element.description %></div>
-                    <div class="menu-item-category"><%= element.category %></div>
-                  </div>
-                      
-                  <% } %>
-              <% }) %>
-              </div>
+    <div class="Center">
+      <!-- Item starts -->
+      <% menus.forEach(element => { %>
+        <% if (element.category == 'Breakfast') { %>
+        <div class="menu-item">
+          <% if (element.imageData) { %>	
+            <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+          <% } %>
+          <div class="row border-dot no-gutters">
+            <div class="col-8 menu-item-name">
+              <div class="menu-item-name"><%= element.name %></div>
+            </div>
+            <div class="col-4 menu-item-price text-right">
+              <div class="menu-item-price">$<%= element.price %></div>
+            </div>
           </div>
-          <!-- Item ends -->
-         
-      </div>
-</section>
- <!-- Section ends: Appetizers -->
-
- <!-- Section starts: Appetizers -->
-<section id="content2" class="tab-content text-left">
-  <!-- <h3 class="title-small text-center">Hot Beverages - <span>Coffee and Cappuccino</span></h3> -->
-  <div class="Center">
-     
-          <!-- Item starts -->
-          <div class="menu-item">
-            <div>
-              <% menus.forEach(element => { %>
-                <% if (element.category == 'Lunch') { %>
-               
-                  <% if (element.imageData) { %>	
-                    <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
-                  <% } else { %>	
-                  <p>No image available</p>
-                  <% } %>
-
-                <div class="col-8 row border-dot no-gutters">
-                    <div class="col-8 menu-item-name">
-                      <div class="menu-item-name"><%= element.name %></div>
-                    </div>
-                    <div class="col-4 menu-item-price text-right">
-                      <div class="menu-item-price">$<%= element.price %></div>
-                    </div>
+          <div class="menu-item-description">
+            
+          </div>
+        </div>
+        <% } %>
+      <% }) %>
+      <!-- Item ends -->
+    </div>
+  </section>
+  <!-- Section ends: Breakfast -->
+  
+  <!-- Section starts: Lunch -->
+  <section id="content2" class="tab-content text-left">
+    <div class="Center">
+      <!-- Item starts -->
+      <% menus.forEach(element => { %>
+        <% if (element.category == 'Lunch') { %>
+            <div class="menu-item">
+                <% if (element.imageData) { %>	
+                  <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+                <% } %>
+                <div class="row border-dot no-gutters">
+                  <div class="col-8 menu-item-name">
+                    <div class="menu-item-name"><%= element.name %></div>
+                  </div>
+                  <div class="col-4 menu-item-price text-right">
+                    <div class="menu-item-price">$<%= element.price %></div>
+                  </div>
                 </div>
                 <div class="menu-item-description">
-                  <div class="menu-item-description"><%= element.description %></div>
-                  <div class="menu-item-category"><%= element.category %></div>
+                  
                 </div>
-                    
-                <% } %>
+              </div>
+              <% } %>
             <% }) %>
-            </div>
-        </div>
-          <!-- Item ends -->
-      </div>    
-</section>
-        
-      <!-- Section ends: Appetizers -->
-
- <!-- Section starts: Appetizers -->
-      <section id="content3" class="tab-content text-left">
-        <!-- <h3 class="title-small text-center">Hot Beverages - <span>Coffee and Cappuccino</span></h3> -->
-        <div class="Center">
-           
-                <!-- Item starts -->
-                <div class="menu-item">
-                  <div>
-                    <% menus.forEach(element => { %>
-                      <% if (element.category == 'Dinner') { %>
-                        <% if (element.imageData) { %>	
-                          <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt="" class="radius-image img-fluid">
-                        <% } else { %>	
-                        <p>No image available</p>
-                        <% } %>
-                      <div class="col-8 row border-dot no-gutters">
-                          <div class="col-8 menu-item-name">
-                            <div class="menu-item-name"><%= element.name %></div>
-                          </div>
-                          <div class="col-4 menu-item-price text-right">
-                            <div class="menu-item-price">$<%= element.price %></div>
-                          </div>
-                      </div>
-                      <div class="menu-item-description">
-                        <div class="menu-item-description"><%= element.description %></div>
-                        <div class="menu-item-category"><%= element.category %></div>
-                      </div>     
-                      <% } %>
-                  <% }) %>
+            <!-- Item ends -->
+          </div>
+        </section>
+  <!-- Section ends: Lunch -->
+  
+  <!-- Section starts: Dinner -->
+  <section id="content3" class="tab-content text-left">
+    <div class="Center">
+      <!-- Item starts -->
+      <% menus.forEach(element => { %>
+        <% if (element.category == 'Dinner') { %>
+            <div class="menu-item">
+                <% if (element.imageData) { %>	
+                  <img src="data:image/<%= element.imageExtension %>;base64,<%= element.imageData %>" alt class="radius-image img-fluid">
+                <% } %>
+                <div class="row border-dot no-gutters">
+                  <div class="col-8 menu-item-name">
+                    <div class="menu-item-name"><%= element.name %></div>
                   </div>
-              </div>
+                  <div class="col-4 menu-item-price text-right">
+                    <div class="menu-item-price">$<%= element.price %></div>
+                  </div>
                 </div>
-                <!-- Item ends -->            
-      </section>
-             <!-- Section ends: Appetizers -->
-</div>
-</div>
-<!-- menu block -->
+                <div class="menu-item-description">
+                  
+                </div>
+              </div>
+              <% } %>
+            <% }) %>
+            <!-- Item ends -->
+          </div>
+        </section>
+  <!-- Section ends: Dinner -->
+  
 
-<!--Footer-->
-<section class="w3l-footer-29-main py-5">
-  <div class="footer-29 py-lg-4 py-md-3">
-      <div class="container">
-          <div class="d-grid grid-col-4 footer-top-29">
-              <div class="footer-list-29 footer-1">
-                  <h6 class="footer-title-29">Contact Us</h6>
-                  <ul>
-                      <li><p><span class="fa fa-map-marker"></span> 2005 Stokes Isle Apt. 896, Coffee Cafe Center, Vacaville 10010, USA.</p></li>
-                      <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8888</a></li>
-                      <li><a href="mailto:coffee@mail.com" class="mail"><span class="fa fa-envelope-open-o"></span> Coffee@mail.com</a></li>
-                  </ul>
-                  <div class="main-social-footer-29">
-                      <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
-                      <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
-                      <a href="#google-plus" class="google-plus"><span class="fa fa-google-plus"></span></a>
-                      <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
-                  </div>
-              </div>
-              <div class="footer-list-29 footer-2">
-                  <ul>
-                      <h6 class="footer-title-29">Featured Links</h6>
-                      <li><a href="#team">Our Team</a></li>
-                      <li><a href="#insta">Instagram feed</a></li>
-                      <li><a href="contact.html">Our Branches</a></li>
-                      <li><a href="#careers">Careers</a></li>
-                      <li><a href="#help">Help & Support</a></li>
-                  </ul>
-              </div>
-              <div class="footer-list-29 footer-3">
-                 
-                  <h6 class="footer-title-29">Newsletter </h6>
-                  <p class="mb-3">Get in your inbox the latest News and</p>
-          <form action="#" class="subscribe" method="post">
-            <input type="email" name="email" placeholder="Email" required="">
-            <button><span class="fa fa-envelope-o"></span></button>
-          </form>
-          <p>Subscribe and get our weekly newsletter</p>
-          <p>We'll never share your email address</p>
-        
-              </div>
-              <div class="footer-list-29 footer-4">
-                  <ul>
-                      <h6 class="footer-title-29">Quick Links</h6>
-                      <li><a href="index.html">Home Page</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="menu.html">Our Menu</a></li>
-                      <li><a href="#blog"> Blog Posts</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
-                  </ul>
-              </div>
-          </div>
-          <div class="d-grid grid-col-2 bottom-copies">
-              <p class="copy-footer-29">© 2020 Coffee. All rights reserved | Designed by <a href="https://w3layouts.com">W3layouts</a></p>
-               <ul class="list-btm-29">
-                      <li><a href="#link">Privacy policy</a></li>
-                      <li><a href="#link">Terms of service</a></li>
-                      
-                  </ul>
-          </div>
-      </div>
-  </div>
   <!-- move top -->
   <button onclick="topFunction()" id="movetop" title="Go to top">
     <span class="fa fa-angle-up"></span>

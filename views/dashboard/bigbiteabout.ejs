@@ -12,6 +12,7 @@ Author URL: http://w3layouts.com
     <title>BigBite</title>
 
     <link href="//fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="css/style-starter.css">
@@ -102,9 +103,36 @@ Author URL: http://w3layouts.com
                 <p>“While tradition forms the backbone of our culinary legacy, innovation is at the heart of Big Bite. We constantly reinvent ourselves to stay ahead of evolving culinary trends and cater to the dynamic tastes of our clientele. Our chefs experiment with new flavors, techniques, and presentation, creating a symphony of culinary artistry that keeps our patrons coming back for more.”</p>
                 <h3 class="title-star mt-3">- Riya Sara Joy, Master Chef</h3>
             </div>
-            <div class="col-lg-6 mt-lg-0 mt-5 ">
-                <img src="images/logo.jpeg" alt="" class="radius-image img-fluid">
-            </div>
+            <div class="col-lg-6 mt-lg-0 mt-5">
+                <!-- Apply the neon glow effect to the image -->
+                <img src="images/logo.jpeg" alt="" class="radius-image img-fluid glow-image">
+              </div>
+            <style>
+                .radius-image {
+                  border-radius: 10px;
+                }
+            
+                .glow-image {
+                  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Neon color glow effect (initial color) */
+                  animation: glow 2s ease-in-out infinite alternate;
+                }
+            
+                @keyframes glow {
+                  0%, 100% {
+                    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Red */
+                  }
+                  25% {
+                    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Turquoise */
+                  }
+                  50% {
+                    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Green */
+                  }
+                  75% {
+                    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange */
+                  }
+                }
+              </style>
+            
         </div>
     </div>
 </section>

@@ -15,12 +15,6 @@ router.get('/dashboard', dashboardcontroller.restuarantabout);
 router.get('/dashboardhome', dashboardcontroller.restuaranthome);
 
 /**
- * Routes for menu
- */
-
-router.get('/dashboardmenu', dashboardcontroller.restuarantmenu);
-
-/**
  * Routes for contact
  */
 

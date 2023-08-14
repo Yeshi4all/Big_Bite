@@ -8,10 +8,8 @@ const mongoose = require('mongoose');
  */
 
 exports.cust_menupage = async (req,res) => {
-    
     try{
-        var menus = await Menu.find({});
-        console.log(menus); // Log the retrieved menu data
+        const menus = await Menu.find({});
         res.render('dashboard/bigbitemenu', {
             menus,
             layout: false });

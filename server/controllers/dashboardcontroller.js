@@ -13,14 +13,6 @@ exports.restuarantabout = async (req,res) => {
             console.log(error);
         }
  }
-
- exports.restuarantmenu = async (req,res) => {
-    try{
-        res.render('./dashboard/bigbitemenu', { layout: false });
-        }catch(error){
-            console.log(error);
-        }
- }
  exports.restuarantcontact = async (req,res) => {
     try{
         res.render('./dashboard/bigbitecontact', { layout: false });
